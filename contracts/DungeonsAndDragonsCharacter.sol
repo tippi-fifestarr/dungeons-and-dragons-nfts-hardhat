@@ -1,6 +1,12 @@
 // contracts/DungeonsAndDragonsCharacter.sol
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
+
+// note possible security flaw, after successfully deploying and then testing 
+pragma solidity ^0.8.7; // consider changing to locked 0.8.4 as per Secureum.
+
+// these are like dependencies, the final ABI and contract should have all their functions accessible,
+// with possible naming shadowing or duplication, but as long as they take different input parameters
+// there should be no security implications, however, personally curious why they are ordered this way
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
@@ -8,7 +14,9 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
+// many thanks to those who have come before, let their glory live on, like a blockchain.
 
+// contract dndScene is ____
 
 contract DungeonsAndDragonsCharacter is ERC721URIStorage, VRFConsumerBase, Ownable {
     // using Strings for string;
